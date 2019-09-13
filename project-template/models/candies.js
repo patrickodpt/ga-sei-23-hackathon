@@ -4,6 +4,7 @@ mongoose.set('useFindAndModify', false);
 
 const CandyInfo = new mongoose.Schema(
   {
+    category: String,
     prodName : String,
     handMach : Boolean,
     natArt : Boolean,
@@ -43,7 +44,7 @@ const CartCollection = mongoose.model('Cart', ShoppingCart)
 
 const getAllCandy = () => { return CandyCollection.find() }
 const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
-const getCandyByCategory = (selectedCat) => { return CandyCollection.find({prodName: selectedCat}) }
+const getCandyByCategory = (selectedCat) => { return CandyCollection.find({category: selectedCat}) }
 
 const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
 const addCandyToCart = (addCandy) => { return CartCollection.insertMany([addCandy]) }
