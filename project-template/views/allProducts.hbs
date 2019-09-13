@@ -34,43 +34,66 @@
       <form action="/clinic" method="post" class="col s12">
         <div class="row">
           <label class="white-text">PRODUCT: </label>
-          <input type="text" name="prodName" value="PRODUCT">
+          <input type="text" name="prodName" value="{{prodName}}">
         </div>
 
         <div class="row">
           <label class="white-text">HAND MADE?: </label>
-          <input type="checkbox" name="handMach" value="HAND MADE?">
+          <input type="checkbox" name="handMach" value="{{handMach}}">
         </div>
 
         <div class="row">
           <label class="white-text">NATURAL INGREDIENTS?: </label>
-          <input type="checkbox" name="natArt" value="NATURAL INGREDIENTS?">
+          <input type="checkbox" name="natArt" value="{{natArt}}">
         </div>
 
         <div class="row">
           <label class="white-text">DESCRIPTION: </label>
-          <input type="text" name="description" value="DESCRIPTION">
+          <input type="text" name="description" value="{{description}}">
         </div>
 
         <div class="row">
           <label class="white-text">COUNTRY OF ORIGIN: </label>
-          <input type="text" name="countryOrig" value="COUNTRY OF ORIGIN">
+          <input type="text" name="countryOrig" value="{{countryOrig}}">
         </div>
 
         <div class="row">
           <label class="white-text">IN STOCK?: </label>
-          <input type="checkbox" name="stockOrder" value="IN-STOCK?">
+          <input type="checkbox" name="stockOrder" value="{{stockOrder}}">
         </div>
 
         <div class="row">
           <label class="white-text">COLD SHIPPING?: </label>
-          <input type="checkbox" name="coldNormal" value="COLD SHIPPING?">
+          <input type="checkbox" name="coldNormal" value="{{coldNormal}}">
         </div>
 
+        <div class="row">
+          <label class="white-text">SHELF-LIFE(weeks): </label>
+          <input type="number" name="shelfLife" value="{{shelfLife}}">
+        </div>
 
+        <div class="row">
+          <label class="white-text">MANUFACTURER: </label>
+          <input type="text" name="manComp" value="{{manComp}}">
+        </div>
+
+        <div class="row">
+          <label class="white-text">COST: </label>
+          <input type="number" name="cost" value="{{cost}}">
+        </div>
+
+        <div class="row">
+          <label class="white-text">WEIGHT: </label>
+          <input type="number" name="weight" value="{{weight}}">
+        </div>
+
+        <div class="row">
+          <label class="white-text">MINIMUM ORDER: </label>
+          <input type="number" name="minOrder" value="{{minOrder}}">
+        </div> 
 
         <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
-        ADD NEW CLINICIAN</button>
+        ADD NEW PRODUCT</button>
       </form>
     </div>
   </div>
