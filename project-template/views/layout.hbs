@@ -15,6 +15,8 @@
           <div class="nav-wrapper">
             <a href="/clinic/" class="brand-logo"><i class="large material-icons">how_to_reg</i>CANDY MANAGER</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <!-- <li><a href="/clinic/categories">Categories</a></li> -->
+              <li><a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a></li>
               <li><a href="/clinic/">Home</a></li>
             </ul>
           </div>
@@ -42,7 +44,7 @@
          </div>
       <div class="footer-copyright">
          <div class="container">
-          <a href="malito:info@cowbellcandy.com">INFO@COWBELLCANDY.COM</a> 
+          <a href="malito:info@cowbellcandy.com">INFO@COWBELLCANDY.COM</a>
           © 2019
           <a href="/">COWBELLCANDY.COM</a> {{!--routes back to home--}}
           <a href="tel:1-888-555-1234">+1 (888) 555-1234</a>
@@ -50,6 +52,16 @@
          </div>
       </div>
     </footer>
+
+    <!-- dropdown category menu below -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="/clinic/categories/Candy">Candy</a></li>
+      <li><a href="#!">Chocolate</a></li>
+      <li class="divider" tabindex="-1"></li>
+      <li><a href="#!">Hard Candy</a></li>
+      <li><a href="#!"><i class="material-icons">view_module</i>TEST</a></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>TEST</a></li>
+    </ul>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/main.js"></script>
