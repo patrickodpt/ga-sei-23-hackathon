@@ -66,3 +66,11 @@ form {
 .return-button {
   padding-top: 10px;
 }
+
+.modal-content {
+  background-color: white;
+}
+
+.modal {
+  background-color: white;
+}
