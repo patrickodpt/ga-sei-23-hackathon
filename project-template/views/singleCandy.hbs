@@ -25,8 +25,8 @@
       <div class="col s8 left-align">
         <!-- <a href="#new-patient" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>NEW PATIENT</a> -->
         <ul>
-          <li>Handmade? {{candy.handMach}} </li>
-          <li>All Natural {{candy.natArt}}</li>
+          <li>Handmade: {{candy.handMach}} </li>
+          <li>All Natural: {{candy.natArt}}</li>
           <li>Description: {{candy.description}}</li>
           <li>Country of Origin: {{candy.countryOrig}}</li>
           <li>IN-STOCK: {{candy.stockOrder}}</li>
@@ -51,8 +51,20 @@
       </div>
 </div>
 
+<div>
+  <form action="/cowbellcandy/addtocart" method="POST" class="PLACEHOLDER">
+    <div class="row">
+      <label class="white-text">Quantity </label>
+      <input type="number" name="quantity" value="{{cartQuant}}">
+    </div>
+      <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
+      Add To Cart</button>
+  </form>
+
+</div>
+
 <!-- Modal Structure -->
-<div id="edit-clinician" class="modal">
+<!-- <div id="edit-clinician" class="modal">
   <div class="modal-content">
     <div class="form-wrapper">
       <form action="/clinic/{{clinician._id}}?_method=PUT" method="post" class="col s12">
@@ -76,10 +88,10 @@
         </button>
 
         <!-- deletes clinician in form by redefining form action and method -->
-        <button class="waves-effect waves-light btn-large button-text" type="submit" name="action" formmethod="post" formaction="/clinic/{{clinician._id}}?_method=DELETE">
+        <!-- <button class="waves-effect waves-light btn-large button-text" type="submit" name="action" formmethod="post" formaction="/clinic/{{clinician._id}}?_method=DELETE">
         DELETE CLINICIAN
         </button>
       </form>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,6 +1,6 @@
 const express = require('express')
 
-const candyAPI = require('../models/clinicians.js')
+const candyAPI = require('../models/candies.js')
 // const patientsAPI = require('../models/patients.js')
 // const dataAPI = require('../models/data.js')
 
@@ -8,17 +8,28 @@ const candyRouter = express.Router()
 //Alex test comment. Delete if needed.
 
 //GET STARTS HERE
+candyRouter.get('/info', (req,res) => {
+  res.render('companyInfo')
+})
+
 candyRouter.get('/', (req, res) => {
   candyAPI.getAllCandy()
   .then((allCandy) => res.render('allProducts', {allCandy}))
 })
 
-candyRouter.get('/:clinicianId', (req, res) => {
-  candyAPI.getCandy(req.params.clinicianId)
+candyRouter.get('/categories/:category', (req, res) => {
+  candyAPI.getCandyByCategory(req.params.category)
+  .then((allCandy) => res.render('categories', {allCandy}))
+})
+
+candyRouter.get('/:candyId', (req, res) => {
+  candyAPI.getCandy(req.params.candyId)
   .then( (candy) => {
-      res.render('singleClinician', {candy})
+      res.render('singleCandy', {candy})
   })
 })
+
+
 // GET ENDS HERE
 //
 // candyRouter.put('/:clinicianId', (req, res) => {
@@ -33,11 +44,19 @@ candyRouter.get('/:clinicianId', (req, res) => {
 //   )
 // })
 
-candyRouter.post('/', (req, res) => {
-  candyAPI.addNewCandy(req.body).then(
-    () => {res.redirect('/clinic') }
+candyRouter.post('/addtocart', (req, res) => {
+  candyAPI.addCandyToCart(req.body).then(
+    () => {res.redirect('/cowbellcandy') }
   )
 })
+
+candyRouter.post('/', (req, res) => {
+  candyAPI.addNewCandy(req.body).then(
+    () => {res.redirect('/cowbellcandy') }
+  )
+})
+
+
 
 // candyRouter.post('/:clinicianId', (req, res) => {
 //   patientsAPI.addNewPatient(req.body, req.params.clinicianId).then(

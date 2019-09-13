@@ -40,11 +40,11 @@ form {
   align-items: center;
 }
 
-.modal {
+/* .modal {
   background-color: #309C7C;
   max-height: 100%;
   overflow: visible;
-}
+} */
 
 #new-data {
     transform: translateY(-10%) !important;
@@ -65,4 +65,12 @@ form {
 
 .return-button {
   padding-top: 10px;
+}
+
+.modal-content {
+  background-color: white;
+}
+
+.modal {
+  background-color: white;
 }

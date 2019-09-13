@@ -3,7 +3,7 @@
     <a href="#new-product" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Product</a>
   </div>
 </div>
-<a href="/cowbellcandy/info">About Page (Test)</a>
+
 <div class="row">
     {{#each allCandy}}
     <div class="col s3">
@@ -20,7 +20,7 @@
           <span class="card-title grey-text text-darken-4">Cost:</span>
           <span class="flow-text">{{cost}}</span>
           <span class="card-title grey-text text-darken-4">Details:</span>
-          <a class="waves-effect waves-light btn" href="/cowbellcandy/{{id}}">Product Details</a>
+          <a class="waves-effect waves-light btn" href="/clinic/{{id}}">Product Details</a>
         </div>
       </div>
     </div>
@@ -31,25 +31,20 @@
 <div id="new-product" class="modal">
   <div class="modal-content">
     <div class="form-wrapper">
-      <form action="/cowbellcandy" method="post" class="col s12">
+      <form action="/clinic" method="post" class="col s12">
         <div class="row">
           <label class="white-text">PRODUCT: </label>
           <input type="text" name="prodName" value="{{prodName}}">
         </div>
 
         <div class="row">
-          <label class="white-text">CATEGORY: </label>
-          <input type="text" name="category" value="{{category}}">
-        </div>
-
-        <div class="row">
           <label class="white-text">HAND MADE?: </label>
-          <input type="text" name="handMach" value="{{handMach}}">
+          <input type="checkbox" name="handMach" value="{{handMach}}">
         </div>
 
         <div class="row">
           <label class="white-text">NATURAL INGREDIENTS?: </label>
-          <input type="text" name="natArt" value="{{natArt}}">
+          <input type="checkbox" name="natArt" value="{{natArt}}">
         </div>
 
         <div class="row">
@@ -64,12 +59,12 @@
 
         <div class="row">
           <label class="white-text">IN STOCK?: </label>
-          <input type="text" name="stockOrder" value="{{stockOrder}}">
+          <input type="checkbox" name="stockOrder" value="{{stockOrder}}">
         </div>
 
         <div class="row">
           <label class="white-text">COLD SHIPPING?: </label>
-          <input type="text" name="coldNormal" value="{{coldNormal}}">
+          <input type="checkbox" name="coldNormal" value="{{coldNormal}}">
         </div>
 
         <div class="row">
@@ -95,7 +90,7 @@
         <div class="row">
           <label class="white-text">MINIMUM ORDER: </label>
           <input type="number" name="minOrder" value="{{minOrder}}">
-        </div>
+        </div> 
 
         <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
         ADD NEW PRODUCT</button>
