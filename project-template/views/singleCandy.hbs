@@ -24,19 +24,61 @@
 
       <div class="col s8 left-align">
         <!-- <a href="#new-patient" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>NEW PATIENT</a> -->
-        <ul>
-          <li>Handmade: {{candy.handMach}} </li>
-          <li>All Natural: {{candy.natArt}}</li>
-          <li>Description: {{candy.description}}</li>
-          <li>Country of Origin: {{candy.countryOrig}}</li>
-          <li>IN-STOCK: {{candy.stockOrder}}</li>
-          <li>COLD?: {{candy.coldNormal}}</li>
-          <li>Shelf life in weeks: {{candy.shelfLife}}</li>
-          <li>Manufacturing Company: {{candy.manComp}}</li>
-          <li>COSTS?: {{candy.cost}}</li>
-          <li>WEIGHT: {{candy.weight}}</li>
-          <li>MIN ORDER: {{candy.minOrder}}</li>
-      </ul>
+      <table>
+        <thead>
+          <!-- <tr>
+              <th>Property</th>
+              <th>Value</th>
+          </tr> -->
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Handmade:</td>
+            <td>{{candy.handMach}}</td>
+          </tr>
+          <tr>
+            <td>All Natural:</td>
+            <td>{{candy.natArt}}</td>
+          </tr>
+          <tr>
+            <td>Description:</td>
+            <td>{{candy.description}}</td>
+          </tr>
+          <tr>
+            <td>Country of Origin:</td>
+            <td>{{candy.countryOrig}}</td>
+          </tr>
+          <tr>
+            <td>IN-STOCK:</td>
+            <td>{{candy.stockOrder}}</td>
+          </tr>
+          <tr>
+            <td>Cold:</td>
+            <td>{{candy.coldNormal}}</td>
+          </tr>
+          <tr>
+            <td>Shelf life in weeks:</td>
+            <td>{{candy.shelfLife}}</td>
+          </tr>
+          <tr>
+            <td>Manufacturing Company:</td>
+            <td>{{candy.manComp}}</td>
+          </tr>
+          <tr>
+            <td>COSTS?:</td>
+            <td>{{candy.cost}}</td>
+          </tr>
+          <tr>
+            <td>WEIGHT:</td>
+            <td>{{candy.weight}}</td>
+          </tr>
+          <tr>
+            <td>MIN ORDER:</td>
+            <td>{{candy.minOrder}}</td>
+          </tr>
+        </tbody>
+      </table>
           <!-- <tbody>
             {{#each retrievedPatients}}
             <tr>
