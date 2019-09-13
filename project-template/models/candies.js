@@ -52,6 +52,8 @@ const getCartContents = () => { return CartCollection.find() }
 const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
 const addToCart = (newCart) => { return CartCollection.insertMany([newCart]) }
 
+const clearCart = () => { return CartCollection.deleteMany({cartID : ''});
+
 
 // const updateClinician = (clinicianId, updatedClinician) => {
 //   return ClinicianCollection.findByIdAndUpdate(clinicianId, updatedClinician)

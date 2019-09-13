@@ -21,3 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.dropdown-trigger');
   var instances = M.Dropdown.init(elems);
 });
+
+//subtot = cost * quantity
+//tote = subtote + subtote
+
+//For Each subtotal
+  //total = total + ({{cost}}*{{quantity}})
