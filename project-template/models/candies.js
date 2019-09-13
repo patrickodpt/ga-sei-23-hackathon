@@ -41,12 +41,16 @@ const ShoppingCart = new mongoose.Schema(
 )
 
 const CandyCollection = mongoose.model('Candy', CandyInfo)
+const CartCollection = mongoose.model('Cart', ShoppingCart)
+
 
 const getAllCandy = () => { return CandyCollection.find() }
 const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
 const getCandyByCategory = (selectedCat) => { return CandyCollection.find({category: selectedCat}) }
+const getCartContents = () => { return CartCollection.find() }
 
 const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+const addToCart = (newCart) => { return CartCollection.insertMany([newCart]) }
 
 
 // const updateClinician = (clinicianId, updatedClinician) => {
@@ -60,6 +64,8 @@ module.exports = {
   getAllCandy,
   getCandy,
   getCandyByCategory,
+  getCartContents,
 
-  addNewCandy
+  addNewCandy,
+  addToCart
 }
