@@ -1,6 +1,6 @@
 const express = require('express')
 
-const candyAPI = require('../models/clinicians.js')
+const candyAPI = require('../models/candies.js')
 // const patientsAPI = require('../models/patients.js')
 // const dataAPI = require('../models/data.js')
 
@@ -20,13 +20,18 @@ const candyRouter = express.Router()
 //GET STARTS HERE
 candyRouter.get('/', (req, res) => {
   candyAPI.getAllCandy()
-  .then((allCandy) => res.render('allCandy', {allCandy}))
+  .then((allCandy) => res.render('allProducts', {allCandy}))
 })
 
-candyRouter.get('/:clinicianId', (req, res) => {
-  candyAPI.getCandy(req.params.clinicianId)
+candyRouter.get('/categories/:category', (req, res) => {
+  candyAPI.getCandyByCategory(req.params.category)
+  .then((allCandy) => res.render('categories', {allCandy}))
+})
+
+candyRouter.get('/:candyId', (req, res) => {
+  candyAPI.getCandy(req.params.candyId)
   .then( (candy) => {
-      res.render('singleClinician', {candy})
+      res.render('singleCandy', {candy})
   })
 })
 // GET ENDS HERE
@@ -44,8 +49,8 @@ candyRouter.get('/:clinicianId', (req, res) => {
 // })
 
 candyRouter.post('/', (req, res) => {
-  cliniciansAPI.addNewCandy(req.body).then(
-    () => {res.redirect('/clinic') }
+  candyAPI.addNewCandy(req.body).then(
+    () => {res.redirect('/cowbellcandy') }
   )
 })
 
