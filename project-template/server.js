@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const { clinicRouter } = require('./controllers/clinic.js')
+const { candyRouter } = require('./controllers/clinic.js')
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.redirect('/clinic')
 })
 
-app.use('/clinic', clinicRouter)
+app.use('/clinic', candyRouter)
 
 const PORT = process.env.PORT || 3000
 
