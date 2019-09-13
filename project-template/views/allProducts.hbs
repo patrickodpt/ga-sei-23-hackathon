@@ -1,0 +1,100 @@
+<div class="row" id="main-header">
+  <div class="col s12 center-align">
+    <a href="#new-product" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Product</a>
+  </div>
+</div>
+
+<div class="row">
+    {{#each allProducts}}
+    <div class="col s3">
+      <div class="card small hoverable teal lighten-1">
+        <div class="card-image" id="product-image">
+          <img class="activator" src="/images/candy.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator white-text text-darken-4">Product: {{prodname}}</span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Product:<i class="material-icons right">close</i></span>
+          <span class="flow-text">{{prodName}}</span>
+          <span class="card-title grey-text text-darken-4">Cost:</span>
+          <span class="flow-text">{{cost}}</span>
+          <span class="card-title grey-text text-darken-4">Details:</span>
+          <a class="waves-effect waves-light btn" href="/clinic/{{id}}">Product Details</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+</div>
+
+<!-- Modal Structure -->
+<div id="new-clinician" class="modal">
+  <div class="modal-content">
+    <div class="form-wrapper">
+      <form action="/clinic" method="post" class="col s12">
+        <div class="row">
+          <label class="white-text">PRODUCT: </label>
+          <input type="text" name="prodName" value="PRODUCT">
+        </div>
+
+        <div class="row">
+          <label class="white-text">HAND MADE?: </label>
+          <input type="checkbox" name="handMach" value="HAND MADE?">
+        </div>
+
+        <div class="row">
+          <label class="white-text">NATURAL INGREDIENTS?: </label>
+          <input type="checkbox" name="natArt" value="NATURAL INGREDIENTS?">
+        </div>
+
+        <div class="row">
+          <label class="white-text">DESCRIPTION: </label>
+          <input type="text" name="description" value="DESCRIPTION">
+        </div>
+
+        <div class="row">
+          <label class="white-text">COUNTRY OF ORIGIN: </label>
+          <input type="text" name="countryOrig" value="COUNTRY OF ORIGIN">
+        </div>
+
+        <div class="row">
+          <label class="white-text">IN STOCK?: </label>
+          <input type="checkbox" name="stockOrder" value="IN-STOCK?">
+        </div>
+
+        <div class="row">
+          <label class="white-text">COLD SHIPPING?: </label>
+          <input type="checkbox" name="coldNormal" value="COLD SHIPPING?">
+        </div>
+
+        <div class="row">
+          <label class="white-text">SHELF-LIFE(weeks): </label>
+          <input type="number" name="shelfLife" value="SHELF-LIFE(weeks)">
+        </div>
+
+        <div class="row">
+          <label class="white-text">MANUFACTURER: </label>
+          <input type="text" name="manComp" value="MANUFACTURER">
+        </div>
+
+        <div class="row">
+          <label class="white-text">COST: </label>
+          <input type="number" name="cost" value="COST">
+        </div>
+
+        <div class="row">
+          <label class="white-text">WEIGHT: </label>
+          <input type="number" name="weigth" value="WIEIGHT">
+        </div>
+
+        <div class="row">
+          <label class="white-text">MINIMUM ORDER: </label>
+          <input type="number" name="minOrder" value="MINIMUM ORDER">
+        </div>        
+
+        <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
+        ADD NEW CLINICIAN</button>
+      </form>
+    </div>
+  </div>
+</div>
