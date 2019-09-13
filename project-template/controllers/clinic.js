@@ -5,7 +5,7 @@ const patientsAPI = require('../models/patients.js')
 const dataAPI = require('../models/data.js')
 
 const clinicRouter = express.Router()
-
+//Alex test comment. Delete if needed.
 //GET STARTS HERE
 clinicRouter.get('/', (req, res) => {
   cliniciansAPI.getAllClinicians()
