@@ -55,7 +55,9 @@
   <form action="/cowbellcandy/addtocart" method="POST" class="PLACEHOLDER">
     <div class="row">
       <label class="white-text">Quantity </label>
-      <input type="number" name="quantity" value="{{cartQuant}}">
+      <input type="number" name="quantity" value="{{quantity}}">
+      <input type="text" name="prodName" value="{{candy.prodName}}">
+      <input type="number" name="cost" value="{{candy.cost}}">
     </div>
       <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
       Add To Cart</button>
