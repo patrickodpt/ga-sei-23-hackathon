@@ -12,6 +12,10 @@ candyRouter.get('/info', (req,res) => {
   res.render('companyInfo')
 })
 
+candyRouter.get('/checkout', (req,res) => {
+  res.render('checkout')
+})
+
 candyRouter.get('/cart', (req,res) => {
   res.render('shoppingCart')
 })
