@@ -4,22 +4,16 @@ const candyAPI = require('../models/candies.js')
 // const patientsAPI = require('../models/patients.js')
 // const dataAPI = require('../models/data.js')
 
-<<<<<<< HEAD
-const clinicRouter = express.Router()
-
-//GET STARTS HERE
-clinicRouter.get('/', (req, res) => {
-  cliniciansAPI.getAllClinicians()
-  .then((allClinicians) => res.render('allClinicians', {allClinicians}))
-})
-=======
 const candyRouter = express.Router()
 //Alex test comment. Delete if needed.
->>>>>>> a44ab4f43022508e4ede418afbf5df5f4d68e5e1
 
 //GET STARTS HERE
 candyRouter.get('/info', (req,res) => {
   res.render('companyInfo')
+})
+
+candyRouter.get('/cart', (req,res) => {
+  res.render('shoppingCart')
 })
 
 candyRouter.get('/', (req, res) => {
