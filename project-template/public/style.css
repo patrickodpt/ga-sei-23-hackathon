@@ -51,7 +51,8 @@ form {
 }
 
 .nav-wrapper {
-  background-color: #309C7C;
+  background-color: #FF8DA1;
+  height: 130px;
   padding-left: 20px;
 }
 
@@ -60,7 +61,7 @@ form {
 }
 
 .page-footer {
-  background-color: #309C7C;
+  background-color: ##FF8DA1;
 }
 
 .return-button {
@@ -73,4 +74,12 @@ form {
 
 .modal {
   background-color: white;
+}
+
+.card {
+  background-color: #CE0F69;
+}
+
+.details-button {
+  background-color: #FF6A13;
 }
