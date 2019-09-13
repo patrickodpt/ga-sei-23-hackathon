@@ -10,7 +10,7 @@ const candyRouter = express.Router()
 //GET STARTS HERE
 candyRouter.get('/', (req, res) => {
   candyAPI.getAllCandy()
-  .then((allCandy) => res.render('allCandy', {allCandy}))
+  .then((allCandy) => res.render('allProducts', {allCandy}))
 })
 
 candyRouter.get('/:clinicianId', (req, res) => {
@@ -34,7 +34,7 @@ candyRouter.get('/:clinicianId', (req, res) => {
 // })
 
 candyRouter.post('/', (req, res) => {
-  cliniciansAPI.addNewCandy(req.body).then(
+  candyAPI.addNewCandy(req.body).then(
     () => {res.redirect('/clinic') }
   )
 })
