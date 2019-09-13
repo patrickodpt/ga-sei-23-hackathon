@@ -2,37 +2,51 @@ const mongoose = require('./connection.js')
 //justin here
 mongoose.set('useFindAndModify', false);
 
-const ClinicianSchema = new mongoose.Schema(
+const CandyInfo = new mongoose.Schema(
   {
-    name: {
-      type: String,
-    },
-    startDate: {
-      type: String,
-      default: "Jan 01, 1971"
-    },
-    role: {
-      type: String,
+    prodName : String,
+    handMach : Boolean,
+    natArt : Boolean,
+    image : String,
+    description : String,
+    countryOrig : String,
+    stockOrder : Boolean,
+    coldNormal : Boolean,
+    shelfLife : Number,
+    manComp : String,
+    cost : Number,
+    weight : Number,
+    minOrder : Number
     }
+)
+
+const OrderInfo = new mongoose.Schema(
+  {
+    prodName : String,
+    prodID : String,
+    quantity : Number,
+    stockOrder : Boolean,
+    shipDay : Boolean,
+    credNum : Number,
+    shipAdd : String,
   }
 )
 
-const ClinicianCollection = mongoose.model('Clinician', ClinicianSchema)
+const CandyCollection = mongoose.model('Candy', CandyInfo)
 
-const getAllClinicians = () => { return ClinicianCollection.find() }
-const getClinician = (clinicianId) => { return ClinicianCollection.findById(clinicianId) }
-const addNewClinician = (newClinician) => { return ClinicianCollection.insertMany([newClinician]) }
-const updateClinician = (clinicianId, updatedClinician) => {
-  return ClinicianCollection.findByIdAndUpdate(clinicianId, updatedClinician)
-}
-const deleteClinician = (clinicianId) => {
-  return ClinicianCollection.findByIdAndDelete(clinicianId)
-}
+const getAllCandy = () => { return CandyCollection.find() }
+const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
+
+ const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+// const updateClinician = (clinicianId, updatedClinician) => {
+//   return ClinicianCollection.findByIdAndUpdate(clinicianId, updatedClinician)
+// }
+// const deleteClinician = (clinicianId) => {
+//   return ClinicianCollection.findByIdAndDelete(clinicianId)
+// }
 
 module.exports = {
-  getAllClinicians,
-  getClinician,
-  addNewClinician,
-  updateClinician,
-  deleteClinician
+  getAllCandy,
+  getCandy,
+  addNewCandy
 }
