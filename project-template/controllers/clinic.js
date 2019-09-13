@@ -8,6 +8,10 @@ const candyRouter = express.Router()
 //Alex test comment. Delete if needed.
 
 //GET STARTS HERE
+candyRouter.get('/info', (req,res) => {
+  res.render('companyInfo')
+})
+
 candyRouter.get('/', (req, res) => {
   candyAPI.getAllCandy()
   .then((allCandy) => res.render('allProducts', {allCandy}))
@@ -19,6 +23,8 @@ candyRouter.get('/:clinicianId', (req, res) => {
       res.render('singleClinician', {candy})
   })
 })
+
+
 // GET ENDS HERE
 //
 // candyRouter.put('/:clinicianId', (req, res) => {
