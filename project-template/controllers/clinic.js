@@ -13,10 +13,15 @@ candyRouter.get('/', (req, res) => {
   .then((allCandy) => res.render('allProducts', {allCandy}))
 })
 
-candyRouter.get('/:clinicianId', (req, res) => {
-  candyAPI.getCandy(req.params.clinicianId)
+candyRouter.get('/categories/:category', (req, res) => {
+  candyAPI.getCandyByCategory(req.params.category)
+  .then((allCandy) => res.render('categories', {allCandy}))
+})
+
+candyRouter.get('/:candyId', (req, res) => {
+  candyAPI.getCandy(req.params.candyId)
   .then( (candy) => {
-      res.render('singleClinician', {candy})
+      res.render('singleCandy', {candy})
   })
 })
 // GET ENDS HERE
