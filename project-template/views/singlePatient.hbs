@@ -1,0 +1,138 @@
+<div class="row white-text">
+      <div class="col s12">
+        <div class="col s3">
+          <div class="card teal lighten-1 col s12">
+
+            <div class="card-image center-align">
+              <i class="large material-icons">person</i>
+            </div>
+
+            <div class="card-content">
+              <span class="card-title white-text text-darken-4">Patient Name:</span>
+              <span class="flow-text">{{patient.name}}</span>
+              <span class="card-title white-text text-darken-4">Primary Diagnosis:</span>
+              <span class="flow-text">{{patient.primaryDiagnosis}}</span>
+              <span class="card-title white-text text-darken-4">Date Of Birth:</span>
+              <span class="flow-text">{{patient.dateOfBirth}}</span>
+
+              <p id="edit-clinician-wrapper" class="center-align">
+                <a  class="waves-effect waves-light btn modal-trigger"  href="#edit-patient">UPDATE PATIENT</a>
+              </p>
+              <p class="center-align return-button">
+                <a  class="waves-effect waves-light btn" href="/clinic/{{patient.clinicianID}}">CLINICIAN PAGE</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col s9 center-align">
+          <a href="#new-data" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>ADD DATA</a>
+          <table class="highlight centered">
+            <thead>
+              <tr>
+                  <th>Day</th>
+                  <th>RHR (bpm)</th>
+                  <th>HRV (rmmsd)</th>
+                  <th>BP (mmHg)</th>
+                  <th>Glucose (mg/dL)</th>
+                  <th>RR (bpm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each retrievedData}}
+              <tr>
+                <td><div class="data-circle">{{day}}</div></td>
+                <td>{{rHR}}</td>
+                <td>{{hRV}}</td>
+                <td>{{bP}}</td>
+                <td>{{glucose}}</td>
+                <td>{{rR}}</td>
+                <td>
+                  <form action="/clinic/{{clinicianID}}/{{patientID}}/{{_id}}?_method=DELETE" method="post">
+                    <button class="waves-effect waves-light btn" type="submit" method="post">
+                    DELETE DATA
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="edit-patient" class="modal">
+  <div class="modal-content">
+    <div class="form-wrapper">
+      <form action="/clinic/{{patient.clinicianID}}/{{patient._id}}/?_method=PUT" method="post">
+        <div class="row">
+          <label class="white-text">PATIENT NAME: </label>
+          <input type="text" name="name" value="{{patient.name}}">
+        </div>
+
+        <div class="row">
+          <label class="white-text">PRIMARY DIAGNOSIS: </label>
+          <input type="text" name="primaryDiagnosis" value="{{patient.primaryDiagnosis}}">
+        </div>
+
+        <div class="row">
+          <label for="dob" class="white-text">DATE OF BIRTH: </label>
+          <input id="dob" type="text" class="datepicker" name="dateOfBirth" value="{{patient.dateOfBirth}}">
+        </div>
+
+        <button class="waves-effect waves-light btn-large button-text" type="submit">
+          UPDATE PATIENT INFORMATION
+        </button>
+
+        <button class="waves-effect waves-light btn-large button-text" type="submit" name="action" formmethod="post" formaction="/clinic/{{patient.clinicianID}}/{{patient._id}}?_method=DELETE">
+        DELETE PATIENT
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="new-data" class="modal">
+  <div class="modal-content" id="new-data-modal">
+    <div class="form-wrapper">
+      <form action="/clinic/{{patient.clinicianID}}/{{patient._id}}" method="post">
+        <div class="row">
+          <label for="d_day" class="white-text">DAY: </label>
+          <input type="text" id="d_day" class="datepicker" name="day" value="Aug 27, 2019">
+        </div>
+
+        <div class="row">
+          <label for="d_gluc" class="white-text">GLUCOSE (mg/dL): </label>
+          <input type="number" id="d_gluc"  name="glucose" value="90">
+        </div>
+
+        <div class="row">
+          <label for="d_bp" class="white-text">BLOOD PRESSURE (mmHg): </label>
+          <input type="text" id="d_bp"  name="bP" value="120/70">
+        </div>
+
+        <div class="row">
+          <label for="d_hrv" class="white-text">HEART RATE VARIABILITY (rmmsd): </label>
+          <input type="number" id="d_hrv"  name="hRV" value="50">
+        </div>
+        <div class="row">
+          <label for="d_rhr" class="white-text">RESTING HEART RATE (bpm): </label>
+          <input type="number" id="d_rhr"  name="rHR" value="60">
+        </div>
+
+        <div class="row">
+          <label for="d_rr" class="white-text">RESPIRATORY RATE: </label>
+          <input type="number" id="d_rr"  name="rR" value="16">
+        </div>
+
+        <button class="modal-close waves-effect waves-light btn-large center-align" type="submit" name="action">
+        ADD NEW DATA
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

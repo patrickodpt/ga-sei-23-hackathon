@@ -1,0 +1,107 @@
+<div class="row white-text">
+      <div class="col s4">
+        <div class="card teal lighten-1 col s12">
+          <div class="card-image">
+            <img class="activator" src="/images/bruce.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title white-text text-darken-4">Name:</span>
+            <span class="flow-text">{{clinician.name}}</span>
+            <span class="card-title white-text text-darken-4">Role:</span>
+            <span class="flow-text">{{clinician.role}}</span>
+            <p id="edit-clinician-wrapper" class="center-align">
+              <a href="#edit-clinician" class="waves-effect waves-light btn-large modal-trigger">Edit Clinician</a>
+            </p>
+            <p class="center-align return-button">
+              <a  class="waves-effect waves-light btn-large" href="/clinic/">ALL CLINICIANS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s8 center-align">
+        <a href="#new-patient" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>NEW PATIENT</a>
+        <table class="highlight centered">
+          <thead>
+            <tr>
+                <th style="min-width:110px">Patient Name</th>
+                <th style="min-width:150px">Primary Diagnosis</th>
+                <th style="min-width:110px">Date Of Birth</th>
+                <th>More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each retrievedPatients}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{primaryDiagnosis}}</td>
+              <td>{{dateOfBirth}}</td>
+              <td><a class="waves-effect waves-light btn" href="/clinic/{{clinicianID}}/{{_id}}">PATIENT DATA</a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="edit-clinician" class="modal">
+  <div class="modal-content">
+    <div class="form-wrapper">
+      <form action="/clinic/{{clinician._id}}?_method=PUT" method="post" class="col s12">
+        <div class="row">
+          <label for="c_name" class="white-text">CLINICIAN NAME: </label>
+          <input type="text" id="c_name" name="name" value="{{clinician.name}}">
+        </div>
+
+        <div class="row">
+          <label for="c_role" class="white-text">ROLE: </label>
+          <input type="text" id="c_role" name="role" value="{{clinician.role}}">
+        </div>
+
+        <div class="row">
+          <label for="c_date" class="white-text">START DATE: </label>
+          <input type="text" class="datepicker" id="c_date" name="startDate" value="{{clinician.startDate}}">
+        </div>
+
+        <button class="waves-effect waves-light btn-large center-align" type="submit" name="action">
+        UPDATE CLINICIAN INFORMATION
+        </button>
+
+        <!-- deletes clinician in form by redefining form action and method -->
+        <button class="waves-effect waves-light btn-large button-text" type="submit" name="action" formmethod="post" formaction="/clinic/{{clinician._id}}?_method=DELETE">
+        DELETE CLINICIAN
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="new-patient" class="modal">
+  <div class="modal-content">
+    <div class="form-wrapper">
+      <form action="/clinic/{{clinician._id}}" method="post">
+        <div class="row">
+          <label for="p_name" class="white-text">PATEINT NAME: </label>
+          <input type="text" id="p_name" name="name" value="PATIENT">
+        </div>
+
+        <div class="row">
+          <label for="dob" class="white-text">DATE OF BIRTH: </label>
+          <input type="text" id="dob" class="datepicker" name="dateOfBirth" value="Mar 15, 1989">
+        </div>
+
+        <div class="row">
+          <label for="pDX" class="white-text">PRIMARY DX: </label>
+          <input type="text" id="pDX" name="primaryDiagnosis" value="DIAGNOSIS">
+        </div>
+
+        <button class="waves-effect waves-light btn-large center-align" type="submit" name="action">
+        ADD NEW PATIENT
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

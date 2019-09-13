@@ -1,0 +1,68 @@
+#main-header {
+  margin: 0;
+}
+
+body {
+  background-color: #597693;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+th {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-wrapper {
+  background-color: #309C7C;
+  margin: 25px 0 0 0;
+  padding: 25px;
+}
+
+#edit-clinician-wrapper {
+  margin: 10px 0 0 0;
+}
+
+.data-circle {
+  border-radius: 99px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #309C7C;
+  max-height: 100%;
+  overflow: visible;
+}
+
+#new-data {
+    transform: translateY(-10%) !important;
+}
+
+.nav-wrapper {
+  background-color: #309C7C;
+  padding-left: 20px;
+}
+
+#nav-mobile {
+  padding-right: 20px;
+}
+
+.page-footer {
+  background-color: #309C7C;
+}
+
+.return-button {
+  padding-top: 10px;
+}

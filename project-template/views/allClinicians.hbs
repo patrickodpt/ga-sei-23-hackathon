@@ -1,0 +1,55 @@
+<div class="row" id="main-header">
+  <div class="col s12 center-align">
+    <a href="#new-clinician" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Clinician</a>
+  </div>
+</div>
+
+<div class="row">
+    {{#each allClinicians}}
+    <div class="col s3">
+      <div class="card small hoverable teal lighten-1">
+        <div class="card-image" id="clinician-image">
+          <img class="activator" src="/images/bruce.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator white-text text-darken-4">Clinician Name: {{name}}</span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Name:<i class="material-icons right">close</i></span>
+          <span class="flow-text">{{name}}</span>
+          <span class="card-title grey-text text-darken-4">Role:</span>
+          <span class="flow-text">{{role}}</span>
+          <span class="card-title grey-text text-darken-4">Profile:</span>
+          <a class="waves-effect waves-light btn" href="/clinic/{{id}}">Clinician Profile</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+</div>
+
+<!-- Modal Structure -->
+<div id="new-clinician" class="modal">
+  <div class="modal-content">
+    <div class="form-wrapper">
+      <form action="/clinic" method="post" class="col s12">
+        <div class="row">
+          <label class="white-text">NAME: </label>
+          <input type="text" name="name" value="CLINICIAN">
+        </div>
+
+        <div class="row">
+          <label class="white-text">START DATE: </label>
+          <input type="text" class="datepicker" name="startDate" value="Mar 15, 2018">
+        </div>
+
+        <div class="row">
+          <label class="white-text">ROLE: </label>
+          <input type="text" name="role" value="CURRENT ROLE">
+        </div>
+
+        <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
+        ADD NEW CLINICIAN</button>
+      </form>
+    </div>
+  </div>
+</div>
