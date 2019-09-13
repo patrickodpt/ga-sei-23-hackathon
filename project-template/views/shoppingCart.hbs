@@ -1,4 +1,14 @@
 <div class="shopping-cart-container">
     <h1 class="white-text">Shopping Cart</h1>
 
+    <div class="row">
+    {{#each cartContents}}
+    <div class="col s3">
+        Product Name : {{prodName}}
+        Cost Per Unit: {{cost}}
+        Quantity : {{quantity}}
+    </div>
+    {{/each}}
+</div>
+
 </div>

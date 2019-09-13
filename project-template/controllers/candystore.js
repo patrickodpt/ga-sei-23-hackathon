@@ -30,6 +30,11 @@ candyRouter.get('/categories/:category', (req, res) => {
   .then((allCandy) => res.render('categories', {allCandy}))
 })
 
+candyRouter.get('/cart', (req, res) => {
+  candyAPI.getCartContents()
+  .then((cartContents) => res.render('shoppingCart', {cartContents}))
+})
+
 candyRouter.get('/:candyId', (req, res) => {
   candyAPI.getCandy(req.params.candyId)
   .then( (candy) => {

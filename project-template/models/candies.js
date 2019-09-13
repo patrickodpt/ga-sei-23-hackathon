@@ -6,13 +6,13 @@ const CandyInfo = new mongoose.Schema(
   {
     category: String,
     prodName : String,
-    handMach : Boolean,
-    natArt : Boolean,
+    handMach : String,
+    natArt : String,
     image : String,
     description : String,
     countryOrig : String,
-    stockOrder : Boolean,
-    coldNormal : Boolean,
+    stockOrder : String,
+    coldNormal : String,
     shelfLife : Number,
     manComp : String,
     cost : Number,
@@ -23,13 +23,20 @@ const CandyInfo = new mongoose.Schema(
 
 const OrderInfo = new mongoose.Schema(
   {
-    prodName : String,
-    prodID : String,
-    quantity : Number,
-    stockOrder : Boolean,
-    shipDay : Boolean,
+    custName : String,
+    shipDay : String,
     credNum : Number,
     shipAdd : String,
+  }
+)
+
+const ShoppingCart = new mongoose.Schema(
+  {
+    prodName: String,
+    prodID : String,
+    cartID : String,
+    cost: Number,
+    quantity : Number
   }
 )
 
