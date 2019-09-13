@@ -17,7 +17,7 @@ const CandyInfo = new mongoose.Schema(
     cost : Number,
     weight : Number,
     minOrder : Number
-    }
+  }
 )
 
 const OrderInfo = new mongoose.Schema(
