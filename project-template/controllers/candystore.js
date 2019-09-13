@@ -16,8 +16,10 @@ candyRouter.get('/checkout', (req,res) => {
   res.render('checkout')
 })
 
-candyRouter.get('/cart', (req,res) => {
-  res.render('shoppingCart')
+candyRouter.get('/cart', (req, res) => {
+  console.log("Contents = ")
+  candyAPI.getCartContents()
+  .then((cartContents) => res.render('shoppingCart', {cartContents}))
 })
 
 candyRouter.get('/', (req, res) => {
@@ -30,10 +32,7 @@ candyRouter.get('/categories/:category', (req, res) => {
   .then((allCandy) => res.render('categories', {allCandy}))
 })
 
-candyRouter.get('/cart', (req, res) => {
-  candyAPI.getCartContents()
-  .then((cartContents) => res.render('shoppingCart', {cartContents}))
-})
+
 
 candyRouter.get('/:candyId', (req, res) => {
   candyAPI.getCandy(req.params.candyId)
@@ -57,6 +56,12 @@ candyRouter.get('/:candyId', (req, res) => {
 
 candyRouter.post('/', (req, res) => {
   candyAPI.addNewCandy(req.body).then(
+    () => {res.redirect('/cowbellcandy') }
+  )
+})
+
+candyRouter.post('/addtocart', (req, res) => {
+  candyAPI.addToCart(req.body).then(
     () => {res.redirect('/cowbellcandy') }
   )
 })
