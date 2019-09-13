@@ -3,7 +3,7 @@
     <a href="#new-product" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Product</a>
   </div>
 </div>
-<a href="/clinic/info">About Page (Test)</a>
+
 <div class="row">
     {{#each allCandy}}
     <div class="col s3">
@@ -20,7 +20,7 @@
           <span class="card-title grey-text text-darken-4">Cost:</span>
           <span class="flow-text">{{cost}}</span>
           <span class="card-title grey-text text-darken-4">Details:</span>
-          <a class="waves-effect waves-light btn" href="/cowbellcandy/{{id}}">Product Details</a>
+          <a class="waves-effect waves-light btn" href="/clinic/{{id}}">Product Details</a>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
 <div id="new-product" class="modal">
   <div class="modal-content">
     <div class="form-wrapper">
-      <form action="/cowbellcandy" method="post" class="col s12">
+      <form action="/clinic" method="post" class="col s12">
         <div class="row">
           <label class="white-text">PRODUCT: </label>
           <input type="text" name="prodName" value="{{prodName}}">
@@ -90,7 +90,7 @@
         <div class="row">
           <label class="white-text">MINIMUM ORDER: </label>
           <input type="number" name="minOrder" value="{{minOrder}}">
-        </div>
+        </div> 
 
         <button class="modal-close waves-effect waves-light btn-large" type="submit" name="action">
         ADD NEW PRODUCT</button>

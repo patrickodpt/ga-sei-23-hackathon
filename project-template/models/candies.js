@@ -36,8 +36,11 @@ const CandyCollection = mongoose.model('Candy', CandyInfo)
 
 const getAllCandy = () => { return CandyCollection.find() }
 const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
+const getCandyByCategory = (selectedCat) => { return CandyCollection.find({prodName: selectedCat}) }
 
- const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+
+
 // const updateClinician = (clinicianId, updatedClinician) => {
 //   return ClinicianCollection.findByIdAndUpdate(clinicianId, updatedClinician)
 // }
@@ -48,5 +51,7 @@ const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
 module.exports = {
   getAllCandy,
   getCandy,
+  getCandyByCategory,
+
   addNewCandy
 }
