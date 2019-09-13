@@ -12,6 +12,10 @@ candyRouter.get('/info', (req,res) => {
   res.render('companyInfo')
 })
 
+candyRouter.get('/cart', (req,res) => {
+  res.render('shoppingCart')
+})
+
 candyRouter.get('/', (req, res) => {
   candyAPI.getAllCandy()
   .then((allCandy) => res.render('allProducts', {allCandy}))
