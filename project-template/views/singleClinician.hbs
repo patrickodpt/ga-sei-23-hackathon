@@ -7,11 +7,11 @@
           <div class="card-content">
             <span class="card-title white-text text-darken-4">Candy Name:</span>
             <!-- ::::TODO::::: RENAME SCHEMA REFERENCES WHEN ALEX FINISHES -->
-            <span class="flow-text">{{clinician.name}}</span>
+            <span class="flow-text">{{candy.prodName}}</span>
             <span class="card-title white-text text-darken-4">Cost:</span>
             <!-- ::::TODO::::: RENAME SCHEMA REFERENCES WHEN ALEX FINISHES -->
 
-            <span class="flow-text">{{clinician.role}}</span>
+            <span class="flow-text">{{candy.cost}}</span>
             <!-- <p id="edit-clinician-wrapper" class="center-align">
               <a href="#edit-clinician" class="waves-effect waves-light btn-large modal-trigger">Edit Clinician</a>
             </p>
@@ -25,17 +25,17 @@
       <div class="col s8 left-align">
         <!-- <a href="#new-patient" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>NEW PATIENT</a> -->
         <ul>
-          <li>Handmade? {{name}} </li>
-          <li>All Natural {{primaryDiagnosis}}</li>
-          <li>Description: {{dateOfBirth}}</li>
-          <li>Country of Origin</li>
-          <li>IN-STOCK</li>
-          <li>COLD?</li>
-          <li>Shelf life in weeks</li>
-          <li>Manufacturing Company</li>
-          <li>COSTS?</li>
-          <li>WEIGHT</li>
-          <li>MIN ORDER</li>
+          <li>Handmade? {{candy.handMach}} </li>
+          <li>All Natural {{candy.natArt}}</li>
+          <li>Description: {{candy.description}}</li>
+          <li>Country of Origin: {{candy.countryOrig}}</li>
+          <li>IN-STOCK: {{candy.stockOrder}}</li>
+          <li>COLD?: {{candy.coldNormal}}</li>
+          <li>Shelf life in weeks: {{candy.shelfLife}}</li>
+          <li>Manufacturing Company: {{candy.manComp}}</li>
+          <li>COSTS?: {{candy.cost}}</li>
+          <li>WEIGHT: {{candy.weight}}</li>
+          <li>MIN ORDER: {{candy.minOrder}}</li>
       </ul>
           <!-- <tbody>
             {{#each retrievedPatients}}

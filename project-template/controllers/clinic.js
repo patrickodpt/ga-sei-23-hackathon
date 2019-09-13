@@ -1,86 +1,70 @@
 const express = require('express')
 
-const cliniciansAPI = require('../models/clinicians.js')
-const patientsAPI = require('../models/patients.js')
-const dataAPI = require('../models/data.js')
+const candyAPI = require('../models/clinicians.js')
+// const patientsAPI = require('../models/patients.js')
+// const dataAPI = require('../models/data.js')
 
-const clinicRouter = express.Router()
+const candyRouter = express.Router()
 //Alex test comment. Delete if needed.
+
 //GET STARTS HERE
-clinicRouter.get('/', (req, res) => {
-  cliniciansAPI.getAllClinicians()
-  .then((allClinicians) => res.render('allClinicians', {allClinicians}))
+candyRouter.get('/', (req, res) => {
+  candyAPI.getAllCandy()
+  .then((allCandy) => res.render('allCandy', {allCandy}))
 })
 
-clinicRouter.get('/:clinicianId', (req, res) => {
-  cliniciansAPI.getClinician(req.params.clinicianId)
-  .then( (clinician) => {
-      patientsAPI.getAllPatientsOfClinician(req.params.clinicianId)
-      .then( (retrievedPatients) => {
-        res.render('singleClinician', {clinician, retrievedPatients})
-      })
-  })
-})
-
-clinicRouter.get('/:clinicianId/:patientId', (req, res) => {
-  patientsAPI.getPatient(req.params.patientId)
-  .then( (patient) => {
-    dataAPI.getAllDataOfPatient(req.params.patientId)
-    .then( (retrievedData) => { res.render('singlePatient', {patient, retrievedData}) })
+candyRouter.get('/:clinicianId', (req, res) => {
+  candyAPI.getCandy(req.params.clinicianId)
+  .then( (candy) => {
+      res.render('singleClinician', {candy})
   })
 })
 // GET ENDS HERE
+//
+// candyRouter.put('/:clinicianId', (req, res) => {
+//   cliniciansAPI.updateClinician(req.params.clinicianId, req.body).then(
+//     () => {res.redirect(`/clinic/${req.params.clinicianId}`)}
+//   )
+// })
+//
+// candyRouter.put('/:clinicianId/:patientId', (req, res) => {
+//   patientsAPI.updatePatient(req.params.patientId, req.body).then(
+//     () => {res.redirect(`/clinic/${req.params.clinicianId}/${req.params.patientId}`)}
+//   )
+// })
 
-clinicRouter.put('/:clinicianId', (req, res) => {
-  cliniciansAPI.updateClinician(req.params.clinicianId, req.body).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}`)}
-  )
-})
-
-clinicRouter.put('/:clinicianId/:patientId', (req, res) => {
-  patientsAPI.updatePatient(req.params.patientId, req.body).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}/${req.params.patientId}`)}
-  )
-})
-
-clinicRouter.post('/', (req, res) => {
-  cliniciansAPI.addNewClinician(req.body).then(
+candyRouter.post('/', (req, res) => {
+  cliniciansAPI.addNewCandy(req.body).then(
     () => {res.redirect('/clinic') }
   )
 })
 
-clinicRouter.post('/:clinicianId', (req, res) => {
-  patientsAPI.addNewPatient(req.body, req.params.clinicianId).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}`) }
-  )
-})
+// candyRouter.post('/:clinicianId', (req, res) => {
+//   patientsAPI.addNewPatient(req.body, req.params.clinicianId).then(
+//     () => {res.redirect(`/clinic/${req.params.clinicianId}`) }
+//   )
+// })
 
-clinicRouter.post('/:clinicianId/:patientId', (req, res) => {
-  dataAPI.addNewData(req.body, req.params.patientId, req.params.clinicianId).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}/${req.params.patientId}`) }
-  )
-})
+// candyRouter.post('/:clinicianId/:patientId', (req, res) => {
+//   dataAPI.addNewData(req.body, req.params.patientId, req.params.clinicianId).then(
+//     () => {res.redirect(`/clinic/${req.params.clinicianId}/${req.params.patientId}`) }
+//   )
+// })
 
 
-clinicRouter.delete('/:clinicianId', (req, res) => {
-  cliniciansAPI.deleteClinician(req.params.clinicianId).then(
-    () => {res.redirect('/')}
-  )
-})
-
-clinicRouter.delete('/:clinicianId/:patientId', (req, res) => {
-  patientsAPI.deletePatient(req.params.patientId).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}`)}
-  )
-})
-
-clinicRouter.delete('/:clinicianId/:patientId/:dataId', (req, res) => {
-  dataAPI.deleteData(req.params.dataId).then(
-    () => {res.redirect(`/clinic/${req.params.clinicianId}/${req.params.patientId}`)}
-  )
-})
+// candyRouter.delete('/:clinicianId', (req, res) => {
+//   cliniciansAPI.deleteClinician(req.params.clinicianId).then(
+//     () => {res.redirect('/')}
+//   )
+// })
+//
+// candyRouter.delete('/:clinicianId/:patientId', (req, res) => {
+//   patientsAPI.deletePatient(req.params.patientId).then(
+//     () => {res.redirect(`/clinic/${req.params.clinicianId}`)}
+//   )
+// })
 
 /* Step 5: Export the router from the file. */
 module.exports = {
-  clinicRouter
+  candyRouter
 }
