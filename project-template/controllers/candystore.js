@@ -1,6 +1,6 @@
 const express = require('express')
 
-const candyAPI = require('../models/clinicians.js')
+const candyAPI = require('../models/candies.js')
 // const patientsAPI = require('../models/patients.js')
 // const dataAPI = require('../models/data.js')
 
@@ -40,7 +40,7 @@ candyRouter.get('/:candyId', (req, res) => {
 
 candyRouter.post('/', (req, res) => {
   candyAPI.addNewCandy(req.body).then(
-    () => {res.redirect('/clinic') }
+    () => {res.redirect('/cowbellcandy') }
   )
 })
 

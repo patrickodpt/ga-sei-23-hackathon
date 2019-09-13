@@ -38,9 +38,9 @@ const getAllCandy = () => { return CandyCollection.find() }
 const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
 const getCandyByCategory = (selectedCat) => { return CandyCollection.find({prodName: selectedCat}) }
 
-
-
 const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+
+
 // const updateClinician = (clinicianId, updatedClinician) => {
 //   return ClinicianCollection.findByIdAndUpdate(clinicianId, updatedClinician)
 // }
