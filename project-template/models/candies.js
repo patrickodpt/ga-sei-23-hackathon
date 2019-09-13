@@ -17,28 +17,36 @@ const CandyInfo = new mongoose.Schema(
     cost : Number,
     weight : Number,
     minOrder : Number
-    }
+  }
 )
 
 const OrderInfo = new mongoose.Schema(
   {
-    prodName : String,
-    prodID : String,
-    quantity : Number,
-    stockOrder : Boolean,
+    custName : String,
     shipDay : Boolean,
     credNum : Number,
     shipAdd : String,
   }
 )
 
+const ShoppingCart = new mongoose.Schema(
+  {
+    prodID : String,
+    cartID : String,
+    quanttity : Number
+  }
+)
+
 const CandyCollection = mongoose.model('Candy', CandyInfo)
+const OrderCollection = mongoose.model('Order', OrderInfo)
+const CartCollection = mongoose.model('Cart', ShoppingCart)
 
 const getAllCandy = () => { return CandyCollection.find() }
 const getCandy = (candyId) => { return CandyCollection.findById(candyId) }
 const getCandyByCategory = (selectedCat) => { return CandyCollection.find({prodName: selectedCat}) }
 
 const addNewCandy = (newCandy) => { return CandyCollection.insertMany([newCandy]) }
+const addCandyToCart = (addCandy) => { return CartCollection.insertMany([addCandy]) }
 
 
 // const updateClinician = (clinicianId, updatedClinician) => {
@@ -53,5 +61,6 @@ module.exports = {
   getCandy,
   getCandyByCategory,
 
-  addNewCandy
+  addNewCandy,
+  addCandyToCart
 }

@@ -48,11 +48,19 @@ candyRouter.get('/:candyId', (req, res) => {
 //   )
 // })
 
+candyRouter.post('/addtocart', (req, res) => {
+  candyAPI.addCandyToCart(req.body).then(
+    () => {res.redirect('/cowbellcandy') }
+  )
+})
+
 candyRouter.post('/', (req, res) => {
   candyAPI.addNewCandy(req.body).then(
     () => {res.redirect('/cowbellcandy') }
   )
 })
+
+
 
 // candyRouter.post('/:clinicianId', (req, res) => {
 //   patientsAPI.addNewPatient(req.body, req.params.clinicianId).then(
