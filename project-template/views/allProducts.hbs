@@ -1,13 +1,7 @@
-<div class="row" id="main-header">
-  <div class="col s12 center-align">
-    <a href="#new-product" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Product</a>
-  </div>
-</div>
-
 <div class="row">
     {{#each allCandy}}
     <div class="col s3">
-      <div class="card small hoverable teal lighten-1">
+      <div class="card small hoverable">
         <div class="card-image" id="product-image">
           <img class="activator" src="/images/candy.png">
         </div>
@@ -20,11 +14,17 @@
           <span class="card-title grey-text text-darken-4">Cost:</span>
           <span class="flow-text">{{cost}}</span>
           <span class="card-title grey-text text-darken-4">Details:</span>
-          <a class="waves-effect waves-light btn" href="/cowbellcandy/{{id}}">Product Details</a>
+          <a id="details-button" class="details-button waves-effect waves-light btn" href="/cowbellcandy/{{id}}">Product Details</a>
         </div>
       </div>
     </div>
     {{/each}}
+</div>
+
+<div class="row" id="main-header">
+  <div class="col s12 center-align">
+    <a href="#new-product" class="waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">assignment_ind</i>New Product</a>
+  </div>
 </div>
 
 <!-- Modal Structure -->
